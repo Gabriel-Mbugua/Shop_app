@@ -20,13 +20,17 @@ class OrderItem {
 
 class Orders with ChangeNotifier {
   List<OrderItem> _orders = [];
+  final String authToken;
+  final String userId;
+
+  Orders(this.authToken, this.userId, this._orders);
 
   List<OrderItem> get orders {
     return [..._orders];
   }
 
   Future<void> fetchAndSetOrders() async {
-    const url = "https://shopapp-bd87e.firebaseio.com/orders.json";
+    final url = "https://shopapp-bd87e.firebaseio.com/orders/$userId.json?auth=$authToken";
 
     final response = await http.get(url);
 
@@ -35,7 +39,7 @@ class Orders with ChangeNotifier {
     if(extractedData == null){
       return;
     }
-    extractedData.forEach((orderId, orderData) {
+   extractedData.forEach((orderId, orderData) {
       loadedOrders.add(
         OrderItem(
           id: orderId,
@@ -44,23 +48,24 @@ class Orders with ChangeNotifier {
           products: (orderData['products'] as List<dynamic>)
               .map(
                 (item) => CartItem(
-                  id: item['id'],
-                  price: item['price'],
-                  quantity: item['quantity'],
-                  title: item['title'],
-                ),
+                      id: item['id'],
+                      price: item['price'],
+                      quantity: item['quantity'],
+                      title: item['title'],
+                    ),
               )
               .toList(),
         ),
       );
     });
+
     //store in local memory and display list from most recent order first
     _orders = loadedOrders.reversed.toList(); 
     notifyListeners();
   }
 
   Future<void> addOrder(List<CartItem> cartProducts, double total) async {
-    const url = "https://shopapp-bd87e.firebaseio.com/orders.json";
+    final url = "https://shopapp-bd87e.firebaseio.com/orders/$userId.json?auth=$authToken";
 
     final timestamp = DateTime.now();
 

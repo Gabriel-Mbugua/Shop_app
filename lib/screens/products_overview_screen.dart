@@ -15,11 +15,15 @@ enum FilterOptions {
 }
 
 class ProductsOverviewScreen extends StatefulWidget {
+   static const routeName = '/product_overview';
+   
   @override
   _ProductsOverviewScreenState createState() => _ProductsOverviewScreenState();
 }
 
 class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
+ 
+
   var _showOnlyFavourites = false;
   var _isInit = true;
   var _isLoading = false;
@@ -93,7 +97,7 @@ class _ProductsOverviewScreenState extends State<ProductsOverviewScreen> {
               icon: Icon(Icons.shopping_cart),
               color: Colors.white,
             ),
-          )
+          ),
         ],
       ),
       drawer: AppDrawer(),

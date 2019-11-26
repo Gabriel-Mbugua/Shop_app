@@ -10,33 +10,35 @@ class Product with ChangeNotifier {
   final String imageUrl;
   bool isFavourite;
 
-  Product(
-      {@required this.id,
-      @required this.title,
-      @required this.description,
-      @required this.price,
-      @required this.imageUrl,
-      this.isFavourite = false});
+  Product({
+    @required this.id,
+    @required this.title,
+    @required this.description,
+    @required this.price,
+    @required this.imageUrl,
+    this.isFavourite = false,
+  });
 
-      void _setFavValue(bool newValue){
-         //rollback in case of error
-        isFavourite = newValue;
-        notifyListeners();
-      }
+  void _setFavValue(bool newValue) {
+    //rollback in case of error
+    isFavourite = newValue;
+    notifyListeners();
+  }
 
-  Future<void> toggleFavouriteStatus() async {
+  Future<void> toggleFavouriteStatus(String token, String userId) async {
     //store the old status incase we run into an error and need to rollback
     final oldStatus = isFavourite;
     isFavourite = !isFavourite;
     notifyListeners();
     //update the favourite status of an existing product
-    final url = "https://shopapp-bd87e.firebaseio.com/products/$id.json";
+    final url =
+        "https://shopapp-bd87e.firebaseio.com/userFavourites/$userId/$id.json?auth=$token";
     try {
-      final response = await http.patch(
+      final response = await http.put(
         url,
-        body: json.encode({
-          'isFavourite': isFavourite,
-        }),
+        body: json.encode(
+          isFavourite,
+        ),
       );
       if (response.statusCode >= 400) {
         _setFavValue(oldStatus);
