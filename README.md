@@ -1,6 +1,6 @@
-# shop_app
+# Shop Application
 
-A template with for an eccomerce application using the firebase database to store information.
+A template for an eccomerce application using the firebase database to store, retrieve, delete and edit information.
 
 # Login Page
 <img src="assets/images/previewImages/login_page.jpg" width = "300">
