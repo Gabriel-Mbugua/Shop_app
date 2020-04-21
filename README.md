@@ -3,8 +3,7 @@
 A template for an eccomerce application using the firebase database to store, retrieve, delete and edit information.
 
 # Login Page & Home Page
-<img src="assets/images/previewImages/login_page.jpg" width = "300"> 
-<img src="assets/images/previewImages/home_page.jpg" width = "300">
+<img src="assets/images/previewImages/login_page.jpg" width = "300"><img src="assets/images/previewImages/home_page.jpg" width = "300">
 
 # Added Item to Cart
 <img src="assets/images/previewImages/add_cart_item.jpg" width = "300">
