@@ -5,17 +5,11 @@ A template for an eccomerce application using the firebase database to store, re
 # Login Page & Home Page
 <img src="assets/images/previewImages/login_page.jpg" width = "300"><img src="assets/images/previewImages/home_page.jpg" width = "300">
 
-# Added Item to Cart
-<img src="assets/images/previewImages/add_cart_item.jpg" width = "300">
+# Added Item to Cart & Cart Page
+<img src="assets/images/previewImages/add_cart_item.jpg" width = "300"><img src="assets/images/previewImages/cart_page.jpg" width = "300">
 
-# Cart Page
-<img src="assets/images/previewImages/cart_page.jpg" width = "300">
-
-# Orders Page
-<img src="assets/images/previewImages/orders_page.jpg" width = "300">
-
-# Manage Products
-<img src="assets/images/previewImages/manage_products_page.jpg" width = "300">
+# Orders Page & Manage Products
+<img src="assets/images/previewImages/orders_page.jpg" width = "300"><img src="assets/images/previewImages/manage_products_page.jpg" width = "300">
 
 # App Drawer
 <img src="assets/images/previewImages/app_drawer.jpg" width = "300">
